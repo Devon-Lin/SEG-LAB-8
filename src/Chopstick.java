@@ -1,6 +1,7 @@
 public class Chopstick {
     private int ID;
     private boolean free;
+    private int waitPeriod = 100;
 
     Chopstick(int ID) {
         this.ID = ID;
@@ -8,18 +9,23 @@ public class Chopstick {
         free = true;
     }
 
-    synchronized void take() {
+    synchronized boolean take() {
         //When this method is invoked, the philosopher is going to need to wait untill this chopstick is free
-        while(!free){
+        if(!free){
             try {
-                wait(); //Philosopher needs to wait
+                wait(waitPeriod); //Philosopher needs to wait
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        free = false; //Chopstick in use
-        System.out.println("Chopstick with ID: " + getID() + ", is currently in use!");
-        notify(); //One of the philosophers will be notified
+        if(free){
+            free = false; //Chopstick in use
+            System.out.println("Chopstick with ID: " + getID() + ", is currently in use!");
+            notify(); //One of the philosophers will be notified
+            return true;
+        } else{
+            return false;
+        }
     }
 
     synchronized void release() {
@@ -35,6 +41,7 @@ public class Chopstick {
             notify();
         }
     }
+
     public int getID () {
         return (ID);
     }
