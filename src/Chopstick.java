@@ -4,8 +4,7 @@ public class Chopstick {
 
     Chopstick(int ID) {
         this.ID = ID;
-
-        free = true;
+        this.free = true;
     }
 
     synchronized void take() {
@@ -18,8 +17,8 @@ public class Chopstick {
             }
         }
         free = false; //Chopstick in use
-        System.out.println("Chopstick with ID: " + getID() + ", is currently in use!");
-        notify(); //One of the philosophers will be notified
+        System.out.println("Chopstick with ID: " + getID() + ", has been picked up");
+        notifyAll(); //One of the philosophers will be notified
     }
 
     synchronized void release() {
@@ -30,10 +29,10 @@ public class Chopstick {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            free = true;
-            System.out.println("Chopstick with ID: " + getID() + ", has been released");
-            notify();
         }
+        free = true;
+        System.out.println("Chopstick with ID: " + getID() + ", has been released");
+        notifyAll();
     }
     public int getID () {
         return (ID);
