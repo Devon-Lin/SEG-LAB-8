@@ -1,7 +1,7 @@
 public class Chopstick {
     private int ID;
     private boolean free;
-    private int waitPeriod = 100;
+    private int waitPeriod = 5000;
 
     Chopstick(int ID) {
         this.ID = ID;
@@ -10,7 +10,7 @@ public class Chopstick {
     }
 
     synchronized boolean take() {
-        //When this method is invoked, the philosopher is going to need to wait untill this chopstick is free
+        //When this method is invoked, the philosopher is going to need to wait until this chopstick is free
         if(!free){
             try {
                 wait(waitPeriod); //Philosopher needs to wait

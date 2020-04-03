@@ -1,0 +1,10 @@
+In this method, deadlocks can never occur.
+
+By implementing a limited wait period, if every philosopher were to try to pick up the chopsticks at once, they would lose patience after a limited amount of time and give up. 
+
+This would allow another philosopher to pick up the chopstick and eat. 
+
+Technically this method applies a time limit on a deadlock. 
+For example, if a deadlock does occur, after a specified time the philosophers will change states back to thinking to get rid of the deadlock.
+
+Therefore, deadlocks are avoided in this case.
