@@ -1,0 +1,7 @@
+In the method of using semaphores, no deadlock ever occurs.
+
+Since only four philosophers can start taking chopsticks at the same time, in the case that this does happen, there will always be at least one philosopher that will be able to take both chopsticks.
+
+This will allow that philosopher to finish eating so that another philosopher can take his chopsticks. 
+
+Therefore, there will never be a case where each philosopher only has a chopstick and hence no deadlock will ever occur.  
