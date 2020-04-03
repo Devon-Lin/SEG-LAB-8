@@ -1,0 +1,8 @@
+In this method, deadlocks can never occur.
+
+By forcing odd philosophers to take the left chopstick first and even philosophers to take the right chopstick first, this allows at least one of them to definetly be able to take the chopstick on their other sides. 
+
+Because of this, it is not possible for every philosopher to only have one chopstick. 
+They each have to take a chopstick on a different side than the at least one of their neighbouring philosophers.
+
+Therefore, deadlocks are avoided in this case.
