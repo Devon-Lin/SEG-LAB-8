@@ -43,7 +43,7 @@ public class Philosopher extends Thread {
 			
 			// Let's try to get the left chopstick
 			System.out.println(getName()+" wants left chopstick");
-			if(left.take()){
+			if(!left.take()){
 				System.out.println("philosopher #" + this.ID + " has lost their patience");
 			} else{
 				// Tell the GUI that I took the left chopstick
